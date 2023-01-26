@@ -282,7 +282,32 @@ The $\Box$ operator is itself a vector. Thus it can be split into a scalar and a
 
 \end{frame}
 
+
 \section{The Curvature Tensor}
+
+\begin{frame}[allowframebreaks]{The Gradient, Revisited}
+
+A set of four linearly independent vector fields at every point in spacetime define a frame at every point $\{\gamma_\mu\}$. This is called a \emph{frame field}.
+
+The derivative in the direction of one of these vectors is denoted by $\Box_k$ and follows the following axioms.
+
+\begin{enumerate}
+	\item $\Box_\mu$ maps scalars to scalars $\Box_\mu \phi = \partial_\mu \phi$
+	\item $\Box_\mu$ is a linear combination of partial derivatives.
+	\item $\Box_\mu$ maps vectors to vectors. Any vector can be written as a linear combination of vectors a basis, and thus we have
+	\begin{equation*}
+		\Box_\mu\gamma_\nu = -L^\alpha_{\mu\nu}\gamma_\alpha,
+	\end{equation*}
+	where $L^\alpha_{\mu\nu}$ are the connection coefficients.
+	\item $\Box_\mu$ obeys the Leibnitz rule
+	\begin{equation*}
+		\Box_\mu (A+B) = (\Box_\mu A)B + A(\Box_\mu B)
+	\end{equation*}
+	\item $\Box_\mu$ is a linear operator.
+	\item $\Box_\mu$ transforms as a vector field.
+\end{enumerate}
+
+\end{frame}
 
 \section{Maxwell's Equations}
 
