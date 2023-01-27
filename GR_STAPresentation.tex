@@ -31,7 +31,7 @@ Physical quantities such as angular momentum and electromagnetic fields should b
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.13]{Figures/BField.png}
+	\includegraphics[scale=0.14]{Figures/BField.png}
 \end{figure}
 \end{frame}
 
@@ -283,7 +283,7 @@ The $\Box$ operator is itself a vector. Thus it can be split into a scalar and a
 \end{frame}
 
 
-\section{The Curvature Tensor}
+\section{Geometric Differential Calculus}
 
 \begin{frame}[allowframebreaks]{The Gradient, Revisited}
 
@@ -309,7 +309,120 @@ The derivative in the direction of one of these vectors is denoted by $\Box_k$ a
 
 \end{frame}
 
-\section{Maxwell's Equations}
+\begin{frame}{The Curvature Tensor}
 
+This derivative behaves as the covarient derivative on vector fields. Given a field $a = a^\mu\gamma_\mu$
+
+\begin{align*}
+	\Box_\nu (a) &= (\Box_\nu a^\alpha) \gamma_\alpha + a^\mu (\Box_\nu \gamma_\mu) \\
+	&= \partial_\nu a^\alpha \gamma_\alpha - a^\mu L^\alpha_{\nu\mu} \gamma_\alpha \\
+	&= (\partial_\nu a^\alpha - a^\mu L^\alpha_{\nu\mu}) \gamma_\alpha.
+\end{align*}
+
+And the curvature tensor has it's usual definition
+
+\begin{equation}
+	L^\mu_{\alpha\beta\sigma} = \partial_\alpha L^\mu_{\beta\sigma} - \partial_\beta L^\mu_{\alpha\sigma} + L^\mu_\beta\rho L^\rho_{\alpha\sigma} - L^{\mu}_{\alpha\rho}L^\rho_{\beta\sigma}.
+\end{equation}
+
+\end{frame}
+
+\begin{frame}{The Faraday Multivector}
+The electromagnetic field can now be redefined in terms of the Pauli algebra. The Riemann-Silberstein vector is defined as
+
+\begin{equation}
+	\vb F = \vb E + i\vb B.
+\end{equation}
+
+\pause
+Since every Pauli multivector is a Dirac multivector, we have
+
+\begin{align}
+	E &= \vb E = E^i \vb e_i = E^i \gamma_i\gamma_0 \\
+	B &= \vb B = B^i \vb e_i = B^i \gamma_i\gamma_0
+\end{align}
+
+Which gives us a Dirac multivector known as the Faraday multivector
+\begin{align}
+	F = E + iB
+\end{align}
+
+\end{frame}
+
+\begin{frame}{The Faraday Multivector}
+
+\emph{The electromagnetic tensor is a separate object from the Faraday Multivector}. The tensor can be defined in terms of the multivector however they are separate entities.
+
+\pause
+
+For any two Dirac vectors, the electromagnetic tensor $\underline{F}(a, b)$ can be defined is the contraction of the Faraday multivector with these vectors
+
+\begin{equation}
+	\underline{F}(a, b) = a \cdot F \cdot b
+\end{equation}
+
+\end{frame}
+
+\begin{frame}{The Faraday Multivector}
+We can decompose $F$ as a linear combination of bivectors to have
+
+\begin{equation*}
+	F = \frac{1}2 F^{\mu\nu} \gamma_\mu \wedge \gamma_\nu
+\end{equation*}
+
+And then the decomposition retrieves the required component
+
+\begin{equation*}
+	\gamma_\alpha \cdot F \cdot \gamma_\beta  = \frac{1}{2} F^{\mu\nu} \gamma_\alpha \cdot \gamma_\mu \wedge \gamma_\nu \cdot \gamma_\beta = \frac{1}{2} F^{\alpha\beta}
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Charged Current Density}
+The charged current density is a Dirac multivector $J$ which can be decomposed into a scalar and a Pauli vector by multiplication with $\gamma_0$
+
+\begin{align*}
+	J &= J\gamma_0\gamma_0 \\
+	&= (J\cdot\gamma_0 + J \wedge \gamma_0) \gamma_0 \\
+	&= (\rho + \vb J) \gamma_0 \\
+	&= \gamma_0 (\rho - \vb J)
+\end{align*}
+\end{frame}
+
+\begin{frame}{Maxwell's Equation}
+Maxwell's equation in terms of the Faraday multivector is then given as
+
+\begin{equation}
+	\Box F = J
+\end{equation}
+
+These can be decomposed into the four familiar equations by left multiplication with $\gamma_0$ and noting that $\gamma_0 \cdot \Box = \partial_0$ and $\gamma_0 \wedge \Box = \grad$.
+
+\begin{align*}
+	\left(\partial_0 + \grad\right) (\vb E + i\vb B) &= \rho - \vb J \\
+	\partial_0 \vb E + \grad \vb E + i(\partial_0 \vb B + \grad \vb B) &= \rho - \vb J
+\end{align*}
+\end{frame}
+
+\begin{frame}{Maxwell's Equation}
+Expanding the geometric products as a dot and wedge product we get
+
+\begin{align*}
+	\partial_0 \vb E + \grad\cdot\vb E + \grad\wedge\vb E + i\partial_0\vb B + i\grad\cdot\vb B + i\grad\wedge\vb B = \rho - \vb J
+\end{align*}
+
+Collecting scalar, vector, bivector, trivector and pseudoscalar terms we get
+
+\begin{align*}
+	\grad\cdot\vb E &= \rho \\
+	\partial_0\vb E + i \grad\wedge\vb B &= -\vb J \\
+	i\partial_0\vb B + \grad\wedge\vb E &= 0 \\
+	i\grad\cdot\vb B &= 0
+\end{align*}
+
+\end{frame}
+
+\begin{frame}[standout]
+	Questions?
+\end{frame}
 
 \end{document}
